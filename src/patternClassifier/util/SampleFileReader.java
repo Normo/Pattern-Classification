@@ -1,10 +1,13 @@
-package patternClassifier;
+package patternClassifier.util;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import patternClassifier.model.main.Sample;
+import patternClassifier.model.main.SampleList;
 
 public class SampleFileReader {
 	
@@ -114,7 +117,7 @@ public class SampleFileReader {
 				headerInfoCount++;
 			} 
 		}
-		//System.out.println("Auswertung Header:\nAnzahl Mustervektoren: " + sampleCount +"\nDimension Mustervektoren: " + sampleDimension + "\nStichprobe klassifiziert? " + sampleClassifaction);
+//		System.out.println("Auswertung Header:\nAnzahl Mustervektoren: " + sampleCount +"\nDimension Mustervektoren: " + sampleDimension + "\nStichprobe klassifiziert? " + sampleClassifaction);
 		
 		this.sampleList.setSize(sampleCount);
 		this.sampleList.setDimension(sampleDimension);
@@ -142,6 +145,7 @@ public class SampleFileReader {
 				sample = new Sample(sampleList.getDimension());
 				
 				if (sampleList.isClassificated()) {
+//					System.out.println("ClassID: "+ columns[sampleList.getDimension()]);
 					sample.setClassID(Integer.parseInt(columns[sampleList.getDimension()]));
 				}
 				

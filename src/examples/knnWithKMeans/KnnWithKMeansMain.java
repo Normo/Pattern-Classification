@@ -1,7 +1,13 @@
-package patternClassifier;
+package examples.knnWithKMeans;
+
+import patternClassifier.KMeans;
+import patternClassifier.KNNClassifier;
+import patternClassifier.model.distance.*;
+import patternClassifier.model.main.*;
+import patternClassifier.util.*;
 
 
-public class Main {
+public class KnnWithKMeansMain {
 
 	public static void main(String[] args) {
 		

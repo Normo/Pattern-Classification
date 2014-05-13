@@ -1,11 +1,16 @@
-package patternClassifier;
+package patternClassifier.model.main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Basisklasse für eine Stichprobe bestehend aus mehreren Merkmalsvektoren.
+ * @author normo
+ *
+ */
 public class SampleList {
 
-	ArrayList<Sample> samples;
+	public ArrayList<Sample> samples;
 	@Deprecated
 	private int capacity;
 	private int size;

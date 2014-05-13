@@ -1,9 +1,18 @@
-package patternClassifier;
+package patternClassifier.model.distance;
 
-public class EuclidDistance implements DistanceMeasure {
+import patternClassifier.model.main.Sample;
+
+/**
+ * Berechnet Distanz zwischen zwei Mustervektoren auf Basis des City-Block-Abstands
+ * bzw der Manhattan-Distanz.
+ * @author normo
+ *
+ */
+public class CityBlockDistance implements DistanceMeasure {
 
 	@Override
 	public double getDistance(Sample sample1, Sample sample2) {
+		
 		int dim = 0;
 		double dist = 0;
 		
@@ -15,10 +24,9 @@ public class EuclidDistance implements DistanceMeasure {
 		}
 		
 		for (int i = 0; i < dim; i++) {
-			dist += Math.pow((sample1.values[i] - sample2.values[i]),2);
+			dist += Math.abs(sample1.values[i] - sample2.values[i]);
 		}
 		
-		dist = Math.sqrt(dist);
 		return dist;
 	}
 }

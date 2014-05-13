@@ -1,11 +1,16 @@
-package patternClassifier;
+package patternClassifier.model.distance;
 
+import patternClassifier.model.main.Sample;
 
-public class CityBlockDistance implements DistanceMeasure {
+/**
+ * Berechnet Distanz zwischen zwei Mustervektoren auf Basis der Maximumnorm.
+ * @author normo
+ *
+ */
+public class MaximumNorm implements DistanceMeasure {
 
 	@Override
 	public double getDistance(Sample sample1, Sample sample2) {
-		
 		int dim = 0;
 		double dist = 0;
 		
@@ -16,10 +21,18 @@ public class CityBlockDistance implements DistanceMeasure {
 			return 0;
 		}
 		
+		double max = 0;
+		
 		for (int i = 0; i < dim; i++) {
-			dist += Math.abs(sample1.values[i] - sample2.values[i]);
+			
+			dist = Math.abs(sample1.values[i] - sample2.values[i]);
+			if(dist > max) {
+				max = dist;
+			}
+			
 		}
 		
-		return dist;
+		return max;
 	}
+
 }

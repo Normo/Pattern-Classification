@@ -1,6 +1,14 @@
-package patternClassifier;
+package patternClassifier.model.distance;
 
-public class MaximumNorm implements DistanceMeasure {
+import patternClassifier.model.main.Sample;
+
+/**
+ * Berechnet die Distanz zwischen zwei Mustervektoren auf Basis des euklidischen
+ * Abstands.
+ * @author normo
+ *
+ */
+public class EuclidDistance implements DistanceMeasure {
 
 	@Override
 	public double getDistance(Sample sample1, Sample sample2) {
@@ -14,18 +22,11 @@ public class MaximumNorm implements DistanceMeasure {
 			return 0;
 		}
 		
-		double max = 0;
-		
 		for (int i = 0; i < dim; i++) {
-			
-			dist = Math.abs(sample1.values[i] - sample2.values[i]);
-			if(dist > max) {
-				max = dist;
-			}
-			
+			dist += Math.pow((sample1.values[i] - sample2.values[i]),2);
 		}
 		
-		return max;
+		dist = Math.sqrt(dist);
+		return dist;
 	}
-
 }

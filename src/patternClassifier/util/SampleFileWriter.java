@@ -1,9 +1,12 @@
-package patternClassifier;
+package patternClassifier.util;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import patternClassifier.model.main.Sample;
+import patternClassifier.model.main.SampleList;
 
 public class SampleFileWriter {
 

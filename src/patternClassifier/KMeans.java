@@ -3,6 +3,10 @@ package patternClassifier;
 import java.util.HashMap;
 import java.util.Random;
 
+import patternClassifier.model.distance.DistanceMeasure;
+import patternClassifier.model.main.*;
+import patternClassifier.util.SampleFileWriter;
+
 public class KMeans {
 	
 	private SampleList originList;

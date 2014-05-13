@@ -1,26 +1,59 @@
-package patternClassifier;
+package patternClassifier.model.main;
 
+/**
+ * Basisklasse für einen Stichproben- bzw Mustervektor.
+ * @author normo
+ *
+ */
 public class Sample {
-
+	/**
+	 * Dimension des Vektors bzw Anzahl der Merkmale des Stichprobenwertes.
+	 */
 	private int dimension;
+	/**
+	 * Klassenzugehörigkeit
+	 */
 	private int classID;
-	double[] values;
+	/**
+	 * Die Merkmalswerte des Mustervektors.
+	 */
+	public double[] values;
+	/**
+	 * Zähler für Menge der Merkmalswerte des Vektors.
+	 */
 	private int valCount;
+	/**
+	 * Label, das angibt, zu welchem Cluster dieser Merkmalsvektor gehört.
+	 */
 	private int clusterLabel;
+	/**
+	 * Label, das angibt, ob das clusterLabel bereits gesetzt wurde.
+	 */
 	private boolean clusterLabelFlag = false;
 
+	/**
+	 * Standard-Konstruktor
+	 * @param dim Dimension des Merkmalsvektors
+	 */
 	public Sample(int dim) {
 		this.dimension = dim;
 		this.values = new double[this.dimension];
 		this.valCount = 0;
 	}
-	
+	/**
+	 * Double-Array-Konstruktor
+	 * @param dArray Werte des neuen Merkmalsvektors
+	 */
 	public Sample(double[] dArray) {
-		this.values = dArray;
+		this.values = dArray.clone();
 		this.dimension = dArray.length;
 		this.valCount = this.dimension;
 	}
 	
+	/**
+	 * Fügt einen neuen Merkmalswert zum Vektor hinzu.
+	 * @param val neuer Merkmalswert
+	 */
 	public void addValue(double val) {
 		if (this.valCount < this.dimension) {
 			this.values[this.valCount] = val;
@@ -47,6 +80,9 @@ public class Sample {
 		return newSample;
 	}
 	
+	/**
+	 * Gibt den Merkmalsvektor als String-Repräsentation zurück.
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		
@@ -59,10 +95,18 @@ public class Sample {
 		return sb.toString();
 	}
 	
+	/**
+	 * Liefert Klassenzugehörigkeit zurück.
+	 * @return classID
+	 */
 	public int getClassID() {
 		return classID;
 	}
 
+	/**
+	 * Setzt Klasse des Merkmalsvektors.
+	 * @param classID neue Klasse des Vektors
+	 */
 	public void setClassID(int classID) {
 		this.classID = classID;
 	}
